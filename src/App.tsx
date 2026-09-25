@@ -55,7 +55,7 @@ const MetricCard = ({ label, value, icon: Icon, trend, prefix = '', suffix = '',
       </div>
       {trend && (
         <span className={cn(
-          "text-[10px] font-bold px-2 py-1 rounded",
+          "text-xs font-semibold tracking-wider font-bold px-2 py-1 rounded",
           trend > 0 
             ? (isDark ? "bg-emerald-500/10 text-emerald-400" : "bg-emerald-50 text-emerald-600") 
             : (isDark ? "bg-rose-500/10 text-rose-400" : "bg-rose-50 text-rose-600")
@@ -79,9 +79,9 @@ const CustomTooltip = ({ active, payload }: any) => {
     return (
       <div className="bg-brand-card border border-brand-border p-3 rounded-xl shadow-lg backdrop-blur-md">
         <p className="text-brand-text-heading font-bold mb-1 text-sm">{data.name} ({data.ticker})</p>
-        <p className="text-[11px] text-brand-text-muted flex justify-between gap-4">Yield: <span className="text-brand-text-heading font-mono font-bold">{data.yield}%</span></p>
-        <p className="text-[11px] text-brand-text-muted flex justify-between gap-4">D/E Ratio: <span className="text-brand-text-heading font-mono font-bold">{data.debtEquity}</span></p>
-        <p className="text-[11px] text-brand-text-muted flex justify-between gap-4">P/FCF: <span className="text-brand-text-heading font-mono font-bold">{data.p_fcf}</span></p>
+        <p className="text-xs font-semibold text-brand-text-muted flex justify-between gap-4">Yield: <span className="text-brand-text-heading font-mono font-bold">{data.yield}%</span></p>
+        <p className="text-xs font-semibold text-brand-text-muted flex justify-between gap-4">D/E Ratio: <span className="text-brand-text-heading font-mono font-bold">{data.debtEquity}</span></p>
+        <p className="text-xs font-semibold text-brand-text-muted flex justify-between gap-4">P/FCF: <span className="text-brand-text-heading font-mono font-bold">{data.p_fcf}</span></p>
       </div>
     );
   }
@@ -128,7 +128,7 @@ const LiveInsightTicker = () => {
             )}>
               {insights[index].mood}
             </span>
-            <span className="text-[11px] text-slate-400 truncate hidden sm:inline">{insights[index].note}</span>
+            <span className="text-xs font-semibold text-slate-400 truncate hidden sm:inline">{insights[index].note}</span>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -223,7 +223,7 @@ export default function App() {
           </div>
           <div className="hidden sm:block">
             <h1 className="text-lg font-semibold tracking-tight text-brand-text-heading leading-none">Zen Portfolio</h1>
-            <span className="text-[10px] text-brand-text-muted font-bold uppercase tracking-wider">Premium Access</span>
+            <span className="text-xs font-semibold tracking-wider text-brand-text-muted font-bold uppercase tracking-wider">Premium Access</span>
           </div>
         </div>
         
@@ -237,7 +237,7 @@ export default function App() {
           </button>
           
           <div className="hidden lg:flex flex-col items-end">
-            <span className="text-[10px] uppercase tracking-wider text-brand-text-muted font-bold">Portfolio View</span>
+            <span className="text-xs font-semibold tracking-wider uppercase tracking-wider text-brand-text-muted font-bold">Portfolio View</span>
             <div className="flex gap-1.5 mt-0.5">
               {(['All', 'Speculative', 'Retirement', 'Income'] as PortfolioType[]).map((type) => (
                 <button
@@ -259,7 +259,7 @@ export default function App() {
           <button 
             onClick={handleExportPDF}
             disabled={isExporting}
-            className="flex items-center gap-2 bg-brand-primary hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all disabled:opacity-50"
+            className="flex items-center gap-2 bg-brand-primary hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg text-base font-semibold min-h-[44px] font-bold transition-all disabled:opacity-50"
           >
             {isExporting ? <Activity className="w-3.5 h-3.5 animate-spin" /> : <Download className="w-3.5 h-3.5" />}
             <span className="hidden sm:inline">Export PDF</span>
@@ -285,7 +285,7 @@ export default function App() {
           <div className="flex items-center gap-4 w-full md:w-auto">
             {/* Mobile Portfolio Selector */}
             <select 
-              className="lg:hidden bg-brand-card border border-brand-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-primary/50 shadow-sm text-brand-text"
+              className="lg:hidden bg-brand-card border border-brand-border rounded-xl px-4 py-2.5 text-base min-h-[44px] focus:outline-none focus:border-brand-primary/50 shadow-sm text-brand-text"
               value={portfolioType}
               onChange={(e) => setPortfolioType(e.target.value as PortfolioType)}
             >
@@ -300,7 +300,7 @@ export default function App() {
               <input 
                 type="text" 
                 placeholder="Filter current view..."
-                className="w-full bg-brand-card border border-brand-border text-brand-text rounded-xl py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:border-brand-primary/50 shadow-sm transition-all"
+                className="w-full bg-brand-card border border-brand-border text-brand-text rounded-xl py-2.5 pl-10 pr-4 text-base min-h-[44px] focus:outline-none focus:border-brand-primary/50 shadow-sm transition-all"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -328,11 +328,11 @@ export default function App() {
               <div className="flex gap-4">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
-                  <span className="text-[10px] font-bold text-brand-text-muted uppercase">Growth</span>
+                  <span className="text-xs font-semibold tracking-wider font-bold text-brand-text-muted uppercase">Growth</span>
                 </div>
                 <div className="flex items-center gap-2 flex-nowrap">
                   <div className="w-2.5 h-2.5 rounded-full bg-brand-primary"></div>
-                  <span className="text-[10px] font-bold text-brand-text-muted uppercase">Income</span>
+                  <span className="text-xs font-semibold tracking-wider font-bold text-brand-text-muted uppercase">Income</span>
                 </div>
               </div>
             </div>
@@ -385,7 +385,7 @@ export default function App() {
                 <p className="text-xl font-medium text-brand-text-heading">Portfolio Health</p>
               </div>
               <div className={cn(
-                "text-[10px] font-bold px-2 py-1 rounded uppercase",
+                "text-xs font-semibold tracking-wider font-bold px-2 py-1 rounded uppercase",
                 darkMode ? "bg-emerald-500/10 text-emerald-400" : "bg-emerald-50 text-emerald-600"
               )}>Health: Optimal</div>
             </div>
@@ -437,7 +437,7 @@ export default function App() {
               </ResponsiveContainer>
               <div className="pt-4 border-t border-brand-border mt-4 flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                <span className="text-[10px] text-brand-text-muted font-medium">Tracking {portfolioType} strategy drift.</span>
+                <span className="text-xs font-semibold tracking-wider text-brand-text-muted font-medium">Tracking {portfolioType} strategy drift.</span>
               </div>
             </div>
           </div>
@@ -450,7 +450,7 @@ export default function App() {
                 <h3 className="text-sm font-bold uppercase tracking-widest text-brand-text-muted">Strategy Ledger</h3>
                 <p className="text-xl font-medium text-brand-text-heading">{portfolioType} Holdings</p>
               </div>
-            <div className="hidden sm:block text-[10px] uppercase font-bold text-brand-text-muted bg-brand-bg px-3 py-1.5 rounded-lg border border-brand-border">
+            <div className="hidden sm:block text-xs font-semibold tracking-wider uppercase font-bold text-brand-text-muted bg-brand-bg px-3 py-1.5 rounded-lg border border-brand-border">
               Showing {filteredData.length} records
             </div>
           </div>
@@ -459,11 +459,11 @@ export default function App() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-brand-border">
-                  <th className="pb-4 px-4 text-[10px] font-bold text-brand-text-muted uppercase tracking-widest cursor-pointer hover:text-brand-primary" onClick={() => handleSort('name')}>Asset</th>
-                  <th className="pb-4 px-4 text-[10px] font-bold text-brand-text-muted uppercase tracking-widest cursor-pointer hover:text-brand-primary" onClick={() => handleSort('yield')}>Yield</th>
-                  <th className="pb-4 px-4 text-[10px] font-bold text-brand-text-muted uppercase tracking-widest cursor-pointer hover:text-brand-primary" onClick={() => handleSort('p_fcf')}>P/FCF</th>
-                  <th className="pb-4 px-4 text-[10px] font-bold text-brand-text-muted uppercase tracking-widest cursor-pointer hover:text-brand-primary" onClick={() => handleSort('debtEquity')}>D/E</th>
-                  <th className="pb-4 px-4 text-[10px] font-bold text-brand-text-muted uppercase tracking-widest">Type</th>
+                  <th className="pb-4 px-4 text-xs font-semibold tracking-wider font-bold text-brand-text-muted uppercase tracking-widest cursor-pointer hover:text-brand-primary" onClick={() => handleSort('name')}>Asset</th>
+                  <th className="pb-4 px-4 text-xs font-semibold tracking-wider font-bold text-brand-text-muted uppercase tracking-widest cursor-pointer hover:text-brand-primary" onClick={() => handleSort('yield')}>Yield</th>
+                  <th className="pb-4 px-4 text-xs font-semibold tracking-wider font-bold text-brand-text-muted uppercase tracking-widest cursor-pointer hover:text-brand-primary" onClick={() => handleSort('p_fcf')}>P/FCF</th>
+                  <th className="pb-4 px-4 text-xs font-semibold tracking-wider font-bold text-brand-text-muted uppercase tracking-widest cursor-pointer hover:text-brand-primary" onClick={() => handleSort('debtEquity')}>D/E</th>
+                  <th className="pb-4 px-4 text-xs font-semibold tracking-wider font-bold text-brand-text-muted uppercase tracking-widest">Type</th>
                   <th className="pb-4 px-4 text-right pr-6"></th>
                 </tr>
               </thead>
@@ -480,7 +480,7 @@ export default function App() {
                     >
                       <td className="py-5 px-4">
                         <div className="font-semibold text-brand-text-heading font-sans">{item.name}</div>
-                        <div className="text-[10px] font-mono font-bold text-brand-text-muted uppercase">{item.ticker}</div>
+                        <div className="text-xs font-semibold tracking-wider font-mono font-bold text-brand-text-muted uppercase">{item.ticker}</div>
                       </td>
                       <td className="py-5 px-4">
                         <span className={cn(
@@ -495,7 +495,7 @@ export default function App() {
                       </td>
                       <td className="py-5 px-4">
                         <span className={cn(
-                          "text-[10px] font-mono font-bold",
+                          "text-xs font-semibold tracking-wider font-mono font-bold",
                           item.debtEquity === 0 ? (darkMode ? "text-emerald-400" : "text-emerald-600") : "text-brand-text-muted"
                         )}>
                           {item.debtEquity.toFixed(2)}
@@ -526,7 +526,7 @@ export default function App() {
       </div>
 
       {/* Subtle Footer */}
-      <footer className="h-14 bg-brand-card border-t border-brand-border flex items-center justify-between px-8 text-[10px] text-brand-text-muted uppercase tracking-[0.2em] font-bold no-print transition-colors">
+      <footer className="h-14 bg-brand-card border-t border-brand-border flex items-center justify-between px-8 text-xs font-semibold tracking-wider text-brand-text-muted uppercase tracking-[0.2em] font-bold no-print transition-colors">
         <div className="hidden sm:block">Snapshot: {new Date().toISOString().slice(0, 19).replace('T', ' ')} UTC</div>
         <div className="flex gap-6 w-full sm:w-auto justify-between sm:justify-end">
           <span>Premium v4.2 PRO</span>

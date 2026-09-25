@@ -67,9 +67,9 @@ export default function AdminPortalModal({ isOpen, onClose }: AdminPortalModalPr
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-mono text-xs uppercase tracking-wider text-blue-400 font-bold">ZEN CAPITAL OS</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 font-mono">v1.0.0 VIP</span>
+                <span className="text-xs font-semibold tracking-wider px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 font-mono">v1.0.0 VIP</span>
               </div>
-              <p className="text-xs text-zinc-400">Institutional FCF &amp; ROIC Capital Allocator Terminal</p>
+              <p className="text-base text-zinc-200 leading-relaxed">Institutional FCF &amp; ROIC Capital Allocator Terminal</p>
             </div>
           </div>
           <button
@@ -88,7 +88,7 @@ export default function AdminPortalModal({ isOpen, onClose }: AdminPortalModalPr
             </div>
             <div className="space-y-2">
               <h3 className="font-display font-medium text-xl text-white">Quant Portfolio Terminal Gate</h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
+              <p className="text-base text-zinc-200 leading-relaxed leading-relaxed">
                 Enter your administrative key to view institutional capital allocation schedules, discounted cash flow ledgers, and LP commitments.
               </p>
             </div>
@@ -178,7 +178,7 @@ export default function AdminPortalModal({ isOpen, onClose }: AdminPortalModalPr
                     {metrics.map((m, idx) => (
                       <div key={idx} className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">{m.label}</span>
+                          <span className="text-xs font-semibold tracking-wider font-mono text-zinc-400 uppercase tracking-wider">{m.label}</span>
                           <m.icon className={`w-4 h-4 ${m.color}`} />
                         </div>
                         <p className="text-xl font-bold font-mono text-white">{m.value}</p>
@@ -210,7 +210,7 @@ export default function AdminPortalModal({ isOpen, onClose }: AdminPortalModalPr
                   </div>
                   <div className="border border-zinc-800 rounded-xl overflow-hidden">
                     <table className="w-full text-left text-xs">
-                      <thead className="bg-zinc-900 text-zinc-400 font-mono uppercase text-[10px] border-b border-zinc-800">
+                      <thead className="bg-zinc-900 text-zinc-400 font-mono uppercase text-xs font-semibold tracking-wider border-b border-zinc-800">
                         <tr>
                           <th className="p-3">Ticker</th>
                           <th className="p-3">Company</th>
@@ -249,11 +249,11 @@ export default function AdminPortalModal({ isOpen, onClose }: AdminPortalModalPr
                         <div className="space-y-1">
                           <p className="font-semibold text-sm text-white">{c.mandate}</p>
                           <p className="text-xs text-blue-400/90 font-mono">LP: {c.lp}</p>
-                          <p className="text-[11px] text-zinc-400">Called: {c.called} &bull; Dry Powder: {c.uncalled}</p>
+                          <p className="text-xs font-semibold text-zinc-400">Called: {c.called} &bull; Dry Powder: {c.uncalled}</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <span className="text-base font-bold font-mono text-emerald-400">{c.netIrr} Net IRR</span>
-                          <span className="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-mono text-[10px] uppercase">
+                          <span className="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-mono text-xs font-semibold tracking-wider uppercase">
                             ACTIVE
                           </span>
                         </div>
@@ -267,20 +267,20 @@ export default function AdminPortalModal({ isOpen, onClose }: AdminPortalModalPr
                 <div className="space-y-4">
                   <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 space-y-2">
                     <h4 className="text-xs font-mono font-bold text-blue-400 uppercase tracking-wider">PostgreSQL Schema &amp; LP Ledgers</h4>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
+                    <p className="text-base text-zinc-200 leading-relaxed leading-relaxed">
                       High-throughput financial tables for equity positions, Free Cash Flow valuation models, and LP capital schedules.
                     </p>
                     <div className="grid grid-cols-3 gap-2 pt-2">
                       <div className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-center">
-                        <p className="text-[10px] font-mono text-zinc-500">TABLE 1</p>
+                        <p className="text-xs font-semibold tracking-wider font-mono text-zinc-300">TABLE 1</p>
                         <p className="text-xs font-mono font-bold text-white">portfolio_holdings</p>
                       </div>
                       <div className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-center">
-                        <p className="text-[10px] font-mono text-zinc-500">TABLE 2</p>
+                        <p className="text-xs font-semibold tracking-wider font-mono text-zinc-300">TABLE 2</p>
                         <p className="text-xs font-mono font-bold text-white">fcf_valuation_models</p>
                       </div>
                       <div className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-center">
-                        <p className="text-[10px] font-mono text-zinc-500">TABLE 3</p>
+                        <p className="text-xs font-semibold tracking-wider font-mono text-zinc-300">TABLE 3</p>
                         <p className="text-xs font-mono font-bold text-white">lp_capital_calls</p>
                       </div>
                     </div>
